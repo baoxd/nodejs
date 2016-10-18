@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发送图片测试</title>
+</head>
+<body>
+	<input type="file" name="file" id="file">
+	<input type="button" value="发送" id="send">
+
+	<div id="div" style="width:400px;height:500px;background:#ededed;border:1px solid #000;">
+		<h1>消息：</h1>
+	</div>
+
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	
+	var socket = io() ;
+	$('#send').on('click' , function(){
+		// 发送图片的三种方式：
+		
+		// 获取文件信息
+		// 1.
+		// var data = $('#file')[0].files[0] ;
+		// if(data){
+		// 	var reader = new FileReader();
+		// 	reader.onload = function(evt){
+		// 	    var file = evt.target.result;
+		// 	    console.info(file) ;
+		// 	    socket.emit('msg', file);
+		// 	};
+		// 	reader.readAsDataURL(data);
+		// }
+
+		// 2.
+		// var data = $('#file')[0].files[0] ;
+		// var type = data['type'] ;
+
+		// var reader = new FileReader();
+		// reader.onload = function(evt){
+
+		//     var file = evt.target.result;
+		//     socket.emit('msg', {file:file,type:type});
+
+		// };
+		// reader.readAsArrayBuffer(data);
+
+		// 3.
+		var data = $('#file')[0].files[0] ;
+		var type = data.type ;
+		socket.emit('msg', {
+			file:data ,
+			type:type
+		}) ;
+
+	});
+
+	socket.on('receive' , function(data){
+		// 1.
+		// console.info(data) ;
+		// var img = new Image() ;
+		// img.src = data ;
+		// $('#div').append(img) ;
+		// data:image/jpeg;base64,
+
+		// 2.
+		// console.info(data) ;
+		// var uint8Arr = new Uint8Array(data.file);
+		// var binary = '';
+		// for (var i = 0; i < uint8Arr.length; i++) {
+		//         binary += String.fromCharCode(uint8Arr[i]);
+		// }
+		// var base64String = window.btoa(binary);
+		// var img = new Image() ;
+		// img.src =  'data:'+data.type+';base64,'+base64String ;
+		// $('#div').append(img) ;
+
+		// 3 .
+		console.info(data) ;
+		var uint8Arr = new Uint8Array(data.file);
+		var binary = '';
+		for (var i = 0; i < uint8Arr.length; i++) {
+		        binary += String.fromCharCode(uint8Arr[i]);
+		}
+		var base64String = window.btoa(binary);
+		var img = new Image() ;
+		img.src =  'data:'+data.type+';base64,'+base64String ;
+		$('#div').append(img) ;
+	});
+
+</script>
+</html>

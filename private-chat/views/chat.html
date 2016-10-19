@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简易聊天室</title>
+
+	<link type="text/css" rel="stylesheet" href="../css/stylesheet.css" />
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans Condensed:300italic,300,700" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header class="banner">
+		<h1 class="bannertext">
+			<a href="javascript:void(0);" id="logo">简易聊天室</a>
+		</h1>
+	</header>
+
+	<section class="section">
+		<!-- These elements are displayed as white info cards in the middle of the screen -->
+		<div class="connected">
+			<img src="../img/unnamed.jpg" id="creatorImage" />
+			<div class="infoConnected">
+				<h2>你是谁?</h2>
+				<br/>
+				<form class="loginForm">
+					<input type="text" id="yourName" placeholder="昵称" /><br/>
+					<input type="text" id="yourEmail" placeholder="邮箱" /><br/>
+					<input type="submit" id="yourEnter" value="进入" />
+				</form>
+			</div>
+		</div>
+
+		<div class="personinside">
+			<img src="../img/unnamed.jpg" id="ownerImage" />
+			<div class="infoInside">
+				<h2><span class="nickname-chat"></span>等待中...</h2>
+				<br/>
+
+				<form class="loginForm">
+					<input type="text" id="hisName" placeholder="昵称" /><br/>
+					<input type="text" id="hisEmail" placeholder="邮箱" /><br/>
+					<input type="submit" id="hisEnter" value="聊天" />
+				</form>
+			</div>
+		</div>
+
+		<div class="invite-textfield">
+			<h2>聊天室还没有人哦!</h2>
+			<h5>把URL发送给你的好友,聊天吧!</h5>
+
+			<div class="link">
+				<a title="Invite a friend" href="" id="link"></a>
+			</div>
+		</div>
+
+		<div class="left">
+			<img src="../img/unnamed.jpg" id="leftImage" />
+			<div class="info">
+				<h2><span class="nickname-left"></span> 离开了聊天室.</h2>
+				<h5>邀请其他人进入这个页面.</h5>
+			</div>
+		</div>
+
+		<div class="toomanypeople">
+			<h2>你不能进入这个房间!</h2>
+			<h5>已经有两个人在里面，你可以创建一个<a title="New Room" href="/create" id="room">新房间</a>?</h5>
+		</div>
+
+		<div class="nomessages">
+			<img src="../img/unnamed.jpg" id="noMessagesImage" />
+
+			<div class="info">
+				<h2>你正和 <span class="nickname-chat"></span>聊天.</h2>
+				<h5>从下面发送消息!</h5>
+			</div>
+		</div>
+
+		<div class="chatscreen">
+			<ul class="chats">
+				<!-- The chat messages will go here -->
+			</ul>
+		</div>
+	</section>
+
+	<footer>
+		<form id="chatform">
+
+			<textarea id="message" placeholder="..."></textarea>
+			<input type="submit" id="submit" value="SEND"/>
+		</form>
+	</footer>
+
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/moment.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="../js/chat.js"></script>
+
+</body>
+</html>

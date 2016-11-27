@@ -1,0 +1,34 @@
+{
+  "name": "mysql-test",
+  "version": "0.0.1",
+  "description": "node mysql test ",
+  "main": "app.js",
+  "scripts": {
+    "start":"gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "mysql",
+    "movie"
+  ],
+  "author": "baoxd",
+  "license": "ISC",
+  "devDependencies": {
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "connect-livereload": "^0.6.0",
+    "connect-multiparty": "^2.0.0",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "gulp": "^3.9.1",
+    "gulp-express": "^0.3.5",
+    "moment": "^2.17.0",
+    "morgan": "^1.7.0",
+    "multer": "^1.2.0",
+    "npmlog": "^4.0.1",
+    "underscore": "^1.8.3"
+  }
+}

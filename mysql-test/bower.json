@@ -1,0 +1,25 @@
+{
+  "name": "mysql-test",
+  "description": "node mysql test",
+  "main": "app.js",
+  "authors": [
+    "baoxd"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "node",
+    "mysql",
+    "movie"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.0"
+  }
+}
